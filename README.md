@@ -1,15 +1,31 @@
-# Patern Repository (Name here!)
+<h1 style="text-align: center;">WorldAdventure</h1>
 
-My patern repository for all my projects!
-(Description here!)
+This project, created in ASP.NET Core Web API, deliver simple RPG experience with just JSON responses. It aims to be simple, RESTful, fully infrastructure-independent (meaning you can deploy it everywhere you like) and configurable to yours needs.
 
-## Tech Stack
+## Tech Stack and tools I used:
 
-- List Here!
+- ASP.NET Core Web API,
+- Dapper,
+- MySQL,
+- Postman,
+- GitHub,
+- Vercel,
+- DocFX,
+- CodeMaid,
+- xUnit,
+- Moq,
+- Fluent Validation,
+- Fluent Assertions,
+- Unit Test Boilerplate Generator,
 
 ## Getting Started
 
-(How to run the solution?)
+### Running app:
+
+Will be added after files creation.
+
+### Game start:
+Will be added after account systems.
 
 ## Licensing
 
