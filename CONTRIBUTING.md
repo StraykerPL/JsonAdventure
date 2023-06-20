@@ -1,4 +1,4 @@
-# Contribution info for WorldAdventure
+# Contribution info for JsonAdventure
 
 There are some ways to contribute to project:
 - read issues labeled "bug" and try to solve problem from it,

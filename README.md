@@ -1,4 +1,4 @@
-<h1 align="center">WorldAdventure</h1>
+<h1 align="center">JsonAdventure</h1>
 
 This project, created in ASP.NET Core Web API, deliver simple RPG experience with just JSON responses. It aims to be simple, RESTful, fully infrastructure-independent (meaning you can deploy it everywhere you like) and configurable to yours needs.
 
