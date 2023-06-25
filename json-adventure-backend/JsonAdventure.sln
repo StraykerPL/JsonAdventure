@@ -11,6 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Application",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Infrastructure", "JsonAdventure.Infrastructure\JsonAdventure.Infrastructure.csproj", "{CD7F5508-53BE-4704-8CCE-9370723EC4D5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6C36875C-0BD4-430F-9F44-9E60487DE5A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonAdventure.IntegrationTests", "JsonAdventure.IntegrationTests\JsonAdventure.IntegrationTests.csproj", "{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonAdventure.UnitTests", "JsonAdventure.UnitTests\JsonAdventure.UnitTests.csproj", "{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +39,21 @@ Global
 		{CD7F5508-53BE-4704-8CCE-9370723EC4D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD7F5508-53BE-4704-8CCE-9370723EC4D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD7F5508-53BE-4704-8CCE-9370723EC4D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285} = {6C36875C-0BD4-430F-9F44-9E60487DE5A9}
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175} = {6C36875C-0BD4-430F-9F44-9E60487DE5A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E664E3AA-029E-4E05-8E17-6EC141DBC510}
