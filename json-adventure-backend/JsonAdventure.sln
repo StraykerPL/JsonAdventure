@@ -5,17 +5,17 @@ VisualStudioVersion = 17.6.33717.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Api", "JsonAdventure.Api\JsonAdventure.Api.csproj", "{9D57D348-281A-4C45-A694-1AA335F3714D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Core", "JsonAdventure.Core\JsonAdventure.Core.csproj", "{C73C6877-A95F-455C-8EA6-33FB7C051ECC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Application", "JsonAdventure.Application\JsonAdventure.Application.csproj", "{E5CE3B95-085D-4479-9B34-9DDB96278F69}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Infrastructure", "JsonAdventure.Infrastructure\JsonAdventure.Infrastructure.csproj", "{CD7F5508-53BE-4704-8CCE-9370723EC4D5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6C36875C-0BD4-430F-9F44-9E60487DE5A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonAdventure.IntegrationTests", "JsonAdventure.IntegrationTests\JsonAdventure.IntegrationTests.csproj", "{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.IntegrationTests", "JsonAdventure.IntegrationTests\JsonAdventure.IntegrationTests.csproj", "{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonAdventure.UnitTests", "JsonAdventure.UnitTests\JsonAdventure.UnitTests.csproj", "{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.UnitTests", "JsonAdventure.UnitTests\JsonAdventure.UnitTests.csproj", "{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonAdventure.Infrastructure", "JsonAdventure.Infrastructure\JsonAdventure.Infrastructure.csproj", "{66F9A7E1-0D70-40E2-964D-668D76CEA0C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonAdventure.Core", "JsonAdventure.Core\JsonAdventure.Core.csproj", "{693ACAC3-3A33-444A-87D1-082A46EB355E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonAdventure.Application", "JsonAdventure.Application\JsonAdventure.Application.csproj", "{E0503D30-6ADB-4CD1-B442-E14651322492}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,18 +27,6 @@ Global
 		{9D57D348-281A-4C45-A694-1AA335F3714D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D57D348-281A-4C45-A694-1AA335F3714D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D57D348-281A-4C45-A694-1AA335F3714D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C73C6877-A95F-455C-8EA6-33FB7C051ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C73C6877-A95F-455C-8EA6-33FB7C051ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C73C6877-A95F-455C-8EA6-33FB7C051ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C73C6877-A95F-455C-8EA6-33FB7C051ECC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5CE3B95-085D-4479-9B34-9DDB96278F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5CE3B95-085D-4479-9B34-9DDB96278F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5CE3B95-085D-4479-9B34-9DDB96278F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5CE3B95-085D-4479-9B34-9DDB96278F69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD7F5508-53BE-4704-8CCE-9370723EC4D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD7F5508-53BE-4704-8CCE-9370723EC4D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD7F5508-53BE-4704-8CCE-9370723EC4D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD7F5508-53BE-4704-8CCE-9370723EC4D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +35,18 @@ Global
 		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F9A7E1-0D70-40E2-964D-668D76CEA0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F9A7E1-0D70-40E2-964D-668D76CEA0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F9A7E1-0D70-40E2-964D-668D76CEA0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F9A7E1-0D70-40E2-964D-668D76CEA0C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{693ACAC3-3A33-444A-87D1-082A46EB355E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{693ACAC3-3A33-444A-87D1-082A46EB355E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{693ACAC3-3A33-444A-87D1-082A46EB355E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{693ACAC3-3A33-444A-87D1-082A46EB355E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0503D30-6ADB-4CD1-B442-E14651322492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0503D30-6ADB-4CD1-B442-E14651322492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0503D30-6ADB-4CD1-B442-E14651322492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0503D30-6ADB-4CD1-B442-E14651322492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
