@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\JsonAdventure.Application\JsonAdventure.Application.csproj" />
+    <ProjectReference Include="..\JsonAdventure.Persistance\JsonAdventure.Persistance.csproj" />
   </ItemGroup>
 
 </Project>

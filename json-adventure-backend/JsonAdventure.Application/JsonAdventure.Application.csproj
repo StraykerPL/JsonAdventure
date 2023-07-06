@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JsonAdventure.Core\JsonAdventure.Core.csproj" />
+    <ProjectReference Include="..\JsonAdventure.Persistance\JsonAdventure.Persistance.csproj" />
+  </ItemGroup>
+
 </Project>
