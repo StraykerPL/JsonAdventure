@@ -5,6 +5,9 @@ on:
     branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
+    
+env:
+    BACKEND_PATH: "json-adventure-backend"
 
 jobs:
   build:
@@ -18,8 +21,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore Dependencies
-      run: dotnet restore
+      run: dotnet restore ${{ env.BACKEND_PATH }}
     - name: Build Solution
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore ${{ env.BACKEND_PATH }}
     - name: Run Tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal ${{ env.BACKEND_PATH }}
