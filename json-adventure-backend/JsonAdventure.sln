@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33717.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Api", "JsonAdventure.Api\JsonAdventure.Api.csproj", "{9D57D348-281A-4C45-A694-1AA335F3714D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6C36875C-0BD4-430F-9F44-9E60487DE5A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.IntegrationTests", "JsonAdventure.IntegrationTests\JsonAdventure.IntegrationTests.csproj", "{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.UnitTests", "JsonAdventure.UnitTests\JsonAdventure.UnitTests.csproj", "{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Core", "JsonAdventure.Core\JsonAdventure.Core.csproj", "{693ACAC3-3A33-444A-87D1-082A46EB355E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Application", "JsonAdventure.Application\JsonAdventure.Application.csproj", "{E0503D30-6ADB-4CD1-B442-E14651322492}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonAdventure.Persistance", "JsonAdventure.Persistance\JsonAdventure.Persistance.csproj", "{4247E210-197C-41EA-AC29-608FF74B0297}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D57D348-281A-4C45-A694-1AA335F3714D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D57D348-281A-4C45-A694-1AA335F3714D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D57D348-281A-4C45-A694-1AA335F3714D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D57D348-281A-4C45-A694-1AA335F3714D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{693ACAC3-3A33-444A-87D1-082A46EB355E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{693ACAC3-3A33-444A-87D1-082A46EB355E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{693ACAC3-3A33-444A-87D1-082A46EB355E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{693ACAC3-3A33-444A-87D1-082A46EB355E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0503D30-6ADB-4CD1-B442-E14651322492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0503D30-6ADB-4CD1-B442-E14651322492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0503D30-6ADB-4CD1-B442-E14651322492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0503D30-6ADB-4CD1-B442-E14651322492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4247E210-197C-41EA-AC29-608FF74B0297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4247E210-197C-41EA-AC29-608FF74B0297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4247E210-197C-41EA-AC29-608FF74B0297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4247E210-197C-41EA-AC29-608FF74B0297}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BC7D07CA-AEA1-408A-AE3C-A69E0FF07285} = {6C36875C-0BD4-430F-9F44-9E60487DE5A9}
+		{ED4BAA9B-E488-4EE6-8B16-3A6D18455175} = {6C36875C-0BD4-430F-9F44-9E60487DE5A9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E664E3AA-029E-4E05-8E17-6EC141DBC510}
+	EndGlobalSection
+EndGlobal
