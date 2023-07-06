@@ -1,6 +1,8 @@
+using JsonAdventure.Persistance.DependencyInjection;
+
 namespace JsonAdventure.Api
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -9,6 +11,10 @@ namespace JsonAdventure.Api
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            string connectionString = builder.Configuration.GetConnectionString("MySql")!;
+            string version = builder.Configuration.GetSection("MySqlConfig")["version"]!;
+            builder.Services.AddMySqlDb(connectionString, version);
 
             var app = builder.Build();
 
