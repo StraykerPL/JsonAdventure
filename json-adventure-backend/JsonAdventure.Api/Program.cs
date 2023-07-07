@@ -1,4 +1,5 @@
 using JsonAdventure.Persistance.DependencyInjection;
+using JsonAdventure.Application.DependencyInjection;
 
 namespace JsonAdventure.Api
 {
@@ -15,6 +16,9 @@ namespace JsonAdventure.Api
             string connectionString = builder.Configuration.GetConnectionString("MySql")!;
             string version = builder.Configuration.GetSection("MySqlConfig")["version"]!;
             builder.Services.AddMySqlDb(connectionString, version);
+
+            builder.Services.AddRepositories();
+            builder.Services.AddServices();
 
             var app = builder.Build();
 

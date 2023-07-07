@@ -6,10 +6,15 @@ namespace JsonAdventure.Persistance.DependencyInjection
 {
     public static class AddMySqlDbExtension
     {
-        public static IServiceCollection AddMySqlDb(this IServiceCollection services, string connectionString, string version)
+        public static IServiceCollection AddMySqlDb(
+            this IServiceCollection services,
+            string connectionString,
+            string dbEngineVersion)
         {
-            var versionObject = new MySqlServerVersion(new Version(version));
-            services.AddDbContext<JsonAdventureDbContext>(options => options.UseMySql(connectionString, versionObject));
+            var mySqlVersionObject = new MySqlServerVersion(dbEngineVersion);
+            services.AddDbContext<JsonAdventureDbContext>(
+                options => options.UseMySql(connectionString, mySqlVersionObject)
+                );
 
             return services;
         }
