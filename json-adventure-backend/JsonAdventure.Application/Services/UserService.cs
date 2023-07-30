@@ -23,24 +23,19 @@ namespace JsonAdventure.Application.Services
             return _userRepository.GetUser(id);
         }
 
-        public void AddUser(string name)
+        public void AddUser(User newUser)
         {
-            var newUser = new User
-            {
-                Name = name
-            };
-
             _userRepository.AddUser(newUser);
         }
 
-        public void EditUser(int id)
+        public void EditUser(int id, User updatedUser)
         {
-            throw new NotImplementedException();
+            _userRepository.EditUser(id, updatedUser);
         }
 
         public void DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            _userRepository.DeleteUser(id);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace JsonAdventure.Api
 
             builder.Services.AddRepositories();
             builder.Services.AddServices();
-            builder.Services.AddIdentityConfig();
+            //builder.Services.AddIdentityConfig();
 
             var app = builder.Build();
 

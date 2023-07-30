@@ -8,9 +8,9 @@ namespace JsonAdventure.Application.Services.Interfaces
 
         User GetUser(int id);
 
-        void AddUser(string name);
+        void AddUser(User newUser);
 
-        void EditUser(int id);
+        void EditUser(int id, User updatedUser);
 
         void DeleteUser(int id);
     }

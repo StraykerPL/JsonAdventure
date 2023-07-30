@@ -21,22 +21,25 @@ namespace JsonAdventure.Persistance.Repositories
 
         public void DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            _dbContext.Remove(_dbContext.Users.Find(id)!);
         }
 
-        public void EditUser(int id)
+        public void EditUser(int id, User newUserData)
         {
-            throw new NotImplementedException();
+            var objectToReplace = _dbContext.Users.Find(id)!;
+            objectToReplace.Name = newUserData.Name;
+            _dbContext.Users.Update(objectToReplace);
+            _dbContext.SaveChanges();
         }
 
         public User GetUser(string name)
         {
-            throw new NotImplementedException();
+            return _dbContext.Users.Find(name)!;
         }
 
         public User GetUser(int id)
         {
-            return _dbContext.Users.Find(id) ?? throw new Exception();
+            return _dbContext.Users.Find(id)!;
         }
     }
 }

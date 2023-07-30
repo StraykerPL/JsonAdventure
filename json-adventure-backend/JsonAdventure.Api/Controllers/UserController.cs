@@ -15,12 +15,6 @@ namespace JsonAdventure.Api.Controllers
             _userService = userService;
         }
 
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok("Hejo! :)");
-        }
-
         [HttpGet("{id}")]
         public User Get(int id)
         {
@@ -28,9 +22,9 @@ namespace JsonAdventure.Api.Controllers
         }
 
         [HttpPost]
-        public void Post(string name)
+        public void Post([FromBody] User userData)
         {
-            _userService.AddUser(name);
+            _userService.AddUser(userData);
         }
 
         [HttpPut("{id}")]
