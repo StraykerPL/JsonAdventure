@@ -1,11 +1,13 @@
 ﻿using JsonAdventure.Application.Services.Interfaces;
 using JsonAdventure.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JsonAdventure.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -21,6 +23,7 @@ namespace JsonAdventure.Api.Controllers
             return _userService.GetUser(id);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public void Post([FromBody] User userData)
         {
