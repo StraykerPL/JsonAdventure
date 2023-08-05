@@ -28,9 +28,9 @@ namespace JsonAdventure.Application.Services
             _userRepository.AddUser(newUser);
         }
 
-        public void EditUser(int id, User updatedUser)
+        public void EditUser(User updatedUser)
         {
-            _userRepository.EditUser(id, updatedUser);
+            _userRepository.EditUser(updatedUser);
         }
 
         public void DeleteUser(int id)

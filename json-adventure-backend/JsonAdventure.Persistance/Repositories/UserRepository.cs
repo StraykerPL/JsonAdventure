@@ -21,14 +21,13 @@ namespace JsonAdventure.Persistance.Repositories
 
         public void DeleteUser(int id)
         {
-            _dbContext.Remove(_dbContext.Users.Find(id)!);
+            _dbContext.Users.Remove(_dbContext.Users.Find(id)!);
+            _dbContext.SaveChanges();
         }
 
-        public void EditUser(int id, User newUserData)
+        public void EditUser(User newUserData)
         {
-            var objectToReplace = _dbContext.Users.Find(id)!;
-            objectToReplace.Name = newUserData.Name;
-            _dbContext.Users.Update(objectToReplace);
+            _dbContext.Users.Update(newUserData);
             _dbContext.SaveChanges();
         }
 

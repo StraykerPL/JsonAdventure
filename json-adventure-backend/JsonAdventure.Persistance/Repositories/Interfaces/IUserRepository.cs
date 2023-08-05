@@ -10,7 +10,7 @@ namespace JsonAdventure.Persistance.Repositories.Interfaces
 
         void AddUser(User newUser);
 
-        void EditUser(int id, User newUserData);
+        void EditUser(User newUserData);
 
         void DeleteUser(int id);
     }

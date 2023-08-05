@@ -10,7 +10,7 @@ namespace JsonAdventure.Application.Services.Interfaces
 
         void AddUser(User newUser);
 
-        void EditUser(int id, User updatedUser);
+        void EditUser(User updatedUser);
 
         void DeleteUser(int id);
     }

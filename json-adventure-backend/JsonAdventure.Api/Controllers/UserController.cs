@@ -28,9 +28,9 @@ namespace JsonAdventure.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public void Put(string newValue)
+        public void Put(int id, string newValue)
         {
-            throw new NotImplementedException();
+            _userService.EditUser(new User { Id = id, Name = newValue });
         }
 
         [HttpDelete("{id}")]
