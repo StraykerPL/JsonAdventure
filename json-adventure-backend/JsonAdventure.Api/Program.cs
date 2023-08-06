@@ -27,7 +27,7 @@ namespace JsonAdventure.Api
                 });
                 options.AddSecurityDefinition("basic", new OpenApiSecurityScheme
                 {
-                    Name = "Authentication",
+                    Name = "Authorization",
                     Type = SecuritySchemeType.Http,
                     Scheme = "basic",
                     In = ParameterLocation.Header,

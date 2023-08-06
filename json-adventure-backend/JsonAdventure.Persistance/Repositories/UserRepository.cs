@@ -33,7 +33,13 @@ namespace JsonAdventure.Persistance.Repositories
 
         public User GetUser(string name)
         {
-            return _dbContext.Users.Find(name)!;
+            foreach (var user in _dbContext.Users)
+            {
+                if (user.Name == name)
+                    return user;
+            }
+
+            return new User();
         }
 
         public User GetUser(int id)

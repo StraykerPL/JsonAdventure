@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Text;
+using System.Text.Json;
 
 namespace JsonAdventure.Api.Authentication
 {
@@ -55,6 +56,54 @@ namespace JsonAdventure.Api.Authentication
             var claims = new[] {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Name),
+            };
+            var identity = new ClaimsIdentity(claims, Scheme.Name);
+            var principal = new ClaimsPrincipal(identity);
+            var ticket = new AuthenticationTicket(principal, Scheme.Name);
+
+            return Task.FromResult(AuthenticateResult.Success(ticket));
+        }
+
+        protected override Task HandleChallengeAsync(AuthenticationProperties properties)
+        {
+            if (!Request.Headers.ContainsKey("Authorization"))
+            {
+                Response.StatusCode = StatusCodes.Status401Unauthorized;
+                Response.ContentType = "application/json";
+                Response.WriteAsync(JsonSerializer.Serialize("Missing Authorization Header"));
+
+                return Task.CompletedTask;
+            }
+
+            string username, password;
+            try
+            {
+                var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
+                var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
+                var credentials = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);
+                username = credentials[0];
+                password = credentials[1];
+            }
+            catch
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+                Response.WriteAsync("Invalid Authorization Header");
+
+                return Task.CompletedTask;
+            }
+
+            var foundUser = _userService.GetUser(username);
+            if (!(username == foundUser.Name && password == "123"))
+            {
+                Response.StatusCode = StatusCodes.Status401Unauthorized;
+                Response.WriteAsync("Invalid Username or Password");
+
+                return Task.CompletedTask;
+            }
+
+            var claims = new[] {
+                new Claim(ClaimTypes.NameIdentifier, foundUser.Id.ToString()),
+                new Claim(ClaimTypes.Name, foundUser.Name),
             };
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);

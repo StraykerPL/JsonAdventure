@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JsonAdventure.Api.Controllers
 {
-    [Authorize]
+    [Authorize(AuthenticationSchemes = "BasicAuthentication")]
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
@@ -18,6 +18,8 @@ namespace JsonAdventure.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public User Get(int id)
         {
             return _userService.GetUser(id);
@@ -25,18 +27,24 @@ namespace JsonAdventure.Api.Controllers
 
         [AllowAnonymous]
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public void Post([FromBody] User userData)
         {
             _userService.AddUser(userData);
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public void Put(int id, string newValue)
         {
             _userService.EditUser(new User { Id = id, Name = newValue });
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public void Delete(int id)
         {
             _userService.DeleteUser(id);
