@@ -7,7 +7,7 @@ namespace JsonAdventure.Api.Controllers
 {
     [Authorize(AuthenticationSchemes = "BasicAuthentication")]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/user")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -17,7 +17,7 @@ namespace JsonAdventure.Api.Controllers
             _userService = userService;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public User Get(int id)
@@ -26,7 +26,7 @@ namespace JsonAdventure.Api.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost("new")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public void Post([FromBody] User userData)
@@ -34,7 +34,7 @@ namespace JsonAdventure.Api.Controllers
             _userService.AddUser(userData);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public void Put(int id, string newValue)
@@ -42,7 +42,7 @@ namespace JsonAdventure.Api.Controllers
             _userService.EditUser(new User { Id = id, Name = newValue });
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public void Delete(int id)
