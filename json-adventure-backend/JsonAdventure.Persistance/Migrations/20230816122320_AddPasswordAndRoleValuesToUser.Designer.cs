@@ -2,6 +2,7 @@
 using JsonAdventure.Persistance.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JsonAdventure.Persistance.Migrations
 {
     [DbContext(typeof(JsonAdventureDbContext))]
-    partial class JsonAdventureDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230816122320_AddPasswordAndRoleValuesToUser")]
+    partial class AddPasswordAndRoleValuesToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

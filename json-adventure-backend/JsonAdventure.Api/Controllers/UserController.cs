@@ -19,6 +19,8 @@ namespace JsonAdventure.Api.Controllers
 
         [HttpGet("get/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public User Get(int id)
         {

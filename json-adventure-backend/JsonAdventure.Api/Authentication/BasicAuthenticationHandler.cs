@@ -1,6 +1,7 @@
 ﻿using JsonAdventure.Api.Constants;
 using JsonAdventure.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 using System.Security.Claims;
@@ -25,14 +26,27 @@ namespace JsonAdventure.Api.Authentication
             _userService = userService;
         }
 
-        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+        private async Task<AuthenticateResult> SetupErrorResponse(int statusCode, string message)
+        {
+            var errorResponse = new ProblemDetails
+            {
+                Status = statusCode,
+                Title = message
+            };
+            Response.StatusCode = statusCode;
+            Response.Headers.Authorization = "Basic";
+            await Response.WriteAsJsonAsync(errorResponse);
+
+            return AuthenticateResult.Fail(message);
+        }
+
+        protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey(AuthHeaderName))
             {
-                Response.StatusCode = StatusCodes.Status401Unauthorized;
-                Response.Headers.Authorization = string.Format("Basic '{0}'", AuthenticationErrorMessages.MissingHeader);
-
-                return Task.FromResult(AuthenticateResult.Fail(AuthenticationErrorMessages.MissingHeader));
+                return await SetupErrorResponse(
+                    StatusCodes.Status401Unauthorized,
+                    AuthenticationErrorMessages.MissingHeader);
             }
 
             string username, password;
@@ -46,30 +60,29 @@ namespace JsonAdventure.Api.Authentication
             }
             catch
             {
-                Response.StatusCode = StatusCodes.Status400BadRequest;
-                Response.Headers.Authorization = string.Format("Basic '{0}'", AuthenticationErrorMessages.InvalidHeader);
-
-                return Task.FromResult(AuthenticateResult.Fail(AuthenticationErrorMessages.InvalidHeader));
+                return await SetupErrorResponse(
+                    StatusCodes.Status400BadRequest,
+                    AuthenticationErrorMessages.InvalidHeader);
             }
 
             var foundUser = _userService.GetUser(username);
-            if (username != foundUser.Name || password != "123")
+            if (username != foundUser.Name || password != foundUser.Password)
             {
-                Response.StatusCode = StatusCodes.Status400BadRequest;
-                Response.Headers.Authorization = string.Format("Basic '{0}'", AuthenticationErrorMessages.InvalidCredentials);
-
-                return Task.FromResult(AuthenticateResult.Fail(AuthenticationErrorMessages.InvalidCredentials));
+                return await SetupErrorResponse(
+                    StatusCodes.Status400BadRequest,
+                    AuthenticationErrorMessages.InvalidCredentials);
             }
 
             var claims = new[] {
                 new Claim(ClaimTypes.NameIdentifier, foundUser.Id.ToString()),
                 new Claim(ClaimTypes.Name, foundUser.Name),
+                new Claim(ClaimTypes.Role, foundUser.Role.ToString()),
             };
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-            return Task.FromResult(AuthenticateResult.Success(ticket));
+            return AuthenticateResult.Success(ticket);
         }
     }
 }
