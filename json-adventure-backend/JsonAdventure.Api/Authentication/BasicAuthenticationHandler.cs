@@ -1,5 +1,6 @@
 ﻿using JsonAdventure.Api.Constants;
 using JsonAdventure.Application.Services.Interfaces;
+using JsonAdventure.Core.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -40,6 +41,20 @@ namespace JsonAdventure.Api.Authentication
             return AuthenticateResult.Fail(message);
         }
 
+        private AuthenticationTicket PrepareAuthTicket(User userData)
+        {
+            var claims = new[] {
+                new Claim(ClaimTypes.NameIdentifier, userData.Id.ToString()),
+                new Claim(ClaimTypes.Name, userData.Name),
+                new Claim(ClaimTypes.Role, userData.Role.ToString()),
+            };
+
+            var identity = new ClaimsIdentity(claims, Scheme.Name);
+            var principal = new ClaimsPrincipal(identity);
+
+            return new AuthenticationTicket(principal, Scheme.Name);
+        }
+
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey(AuthHeaderName))
@@ -73,16 +88,7 @@ namespace JsonAdventure.Api.Authentication
                     AuthenticationErrorMessages.InvalidCredentials);
             }
 
-            var claims = new[] {
-                new Claim(ClaimTypes.NameIdentifier, foundUser.Id.ToString()),
-                new Claim(ClaimTypes.Name, foundUser.Name),
-                new Claim(ClaimTypes.Role, foundUser.Role.ToString()),
-            };
-            var identity = new ClaimsIdentity(claims, Scheme.Name);
-            var principal = new ClaimsPrincipal(identity);
-            var ticket = new AuthenticationTicket(principal, Scheme.Name);
-
-            return AuthenticateResult.Success(ticket);
+            return AuthenticateResult.Success(PrepareAuthTicket(foundUser));
         }
     }
 }
